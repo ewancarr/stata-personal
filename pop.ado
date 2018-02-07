@@ -3,7 +3,7 @@
 
 cap program drop pop
 program define pop
-	args matrix_name
+	args matrix_name printout
 	* Save the row/column names
 	local rownames_to_restore: rownames `matrix_name'
 	local colnames_to_restore: colnames `matrix_name'
@@ -17,6 +17,8 @@ program define pop
 	local rownames_to_restore: subinstr local rownames_to_restore "`1'" ""
 	mat rownames fixed = `rownames_to_restore'
 	mat colnames fixed = `colnames_to_restore'
-	mat li fixed
+	if `printout' == 1 {
+		mat li fixed
+	}
 end
 

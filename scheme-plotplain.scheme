@@ -1,15 +1,20 @@
-* title                                    colorblind.scheme
+*                                    bischof.scheme
 
-* s1 scheme family with colors for subgroup graphs, stylish axis and thin lines.
+* s1/s2 scheme family with a naturally white background and gray scale 
 
 
 *!  version 1.1  24dec2014
 #include s1mono
 
-clockdir legend_position		 7
+// Legend outside in lower right corner; 1 column; short signatures; no frame
+clockdir legend_position     4
+numstyle legend_cols         1
+numstyle legend_rows         0
+gsize legend_key_xsize       5
 
-numstyle legend_rows      2
-numstyle legend_cols      0
+margin axis_title small
+
+graphsize x 6
 
 gsize                 small
 gsize gap             tiny
@@ -52,7 +57,6 @@ gsize barlabel_gap    tiny
 
 gsize legend_row_gap    tiny
 gsize legend_key_gap    vsmall
-gsize legend_key_xsize  medlarge
 gsize legend_key_ysize  vsmall
 
 gsize zyx2legend_key_gap    tiny
@@ -65,12 +69,6 @@ gsize zyx2rowgap            zero
 gsize pie_explode       medium
 gsize pielabel_gap      zero
 
-gsize plabel            small
-gsize pboxlabel         small
-
-* gsize p#label           small
-* gsize p#boxlabel        small
-
 gsize sts_risktable_space third_tiny
 gsize sts_risktable_tgap  zero
 gsize sts_risktable_lgap  zero
@@ -78,26 +76,22 @@ gsize sts_risk_label      medsmall
 gsize sts_risk_title      medsmall
 gsize sts_risk_tick       zero
 
-
 linestyle  legend		none
 linestyle  plotregion		none
 anglestyle vertical_tick	horizontal
 
-linewidth small small
-linewidth histogram    thin
-linewidth bar          thin
-linewidth refline      vthin
-linewidth major_grid         vthin
-linewidth minor_grid         vthin
-llinewidth p                  thin
+linewidth xyline       thin
+linewidth histogram       vthin
+linewidth bar       vthin
+
+linewidth p                  thin
 linewidth axisline           vthin
 linewidth tick               vthin
 linewidth minortick          vthin
 linewidth background         vthin
 linewidth foreground         vthin
-linewidth major_grid         vthin
-linewidth minor_grid         vthin
-linewidth xyline             vvthin
+linewidth major_grid         thin
+linewidth minor_grid         thin
 linewidth refmarker          vthin
 linewidth matrixmark         vthin
 linewidth dots               thin
@@ -111,12 +105,10 @@ linewidth reverse_big        vthin
 linewidth sunflower          vthin
 linewidth matrix_plotregion  vthin
 linewidth text_option        vthin
-linewidth ci                 vthin
-linewidth ci_line	     vthin
-linewidth ci_area            vthin
-linewidth ci2                vthin
-linewidth ci2_line	     vthin
-linewidth ci2_area           vthin
+linewidth ci                 thin
+linewidth ci2                thin
+linewidth ci_area            thin
+linewidth ci2_area           thin
 linewidth pbar               thin
 linewidth p1bar              thin
 linewidth p2bar              thin
@@ -166,9 +158,70 @@ linewidth p13lineplot medthin
 linewidth p14lineplot medthin
 linewidth p15lineplot medthin
 
-linepattern grid        dot
-linepattern major_grid  dot
-linepattern minor_grid  dot
+
+linewidth small small
+linewidth histogram    thin
+linewidth bar          thin
+
+
+linewidth refline      vthin
+
+
+color xyline gs7
+color tick         gs10
+color minortick    gs10
+
+color grid                   gs10
+color major_grid             gs10
+color minor_grid             gs10
+color axisline     gs10
+
+color matrix         gs6    
+color matrixmarkline gs6    
+color refmarker      gs11
+color refmarkline    black
+color histogram      gs8
+color histback       gs10
+color histogram_line black
+
+color ci_line      gs8
+color ci_arealine  gs12
+color ci_area      gs12
+color ci_symbol    gs9
+color ci2_line     gs4
+color ci2_arealine gs10
+color ci2_area     gs10
+color ci2_symbol   gs6
+
+intensity ci_area    inten30
+
+
+yesno draw_minor_vgrid  yes
+yesno draw_minor_hgrid  yes
+
+color background             white
+
+
+symbolsize              small
+symbolsize p       small
+
+
+symbol p1     circle_hollow
+symbol p2     x
+symbol p3     diamond_hollow
+symbol p4     triangle_hollow
+symbol p5     plus
+symbol p6     square_hollow
+symbol p7     circle
+symbol p8     diamond
+symbol p9     square
+symbol p10    triangle
+symbol p11    smcircle
+symbol p12    smdiamond
+symbol p13    smsquare
+symbol p14    smtriangle
+symbol p15    smx
+
 
 linepattern p1lineplot  solid
 linepattern p2lineplot  dash
@@ -185,56 +238,29 @@ linepattern p12lineplot dash_3dot
 linepattern p13lineplot longdash_dot_dot
 linepattern p14lineplot shortdash_dot_dot
 linepattern p15lineplot longdash_3dot
-linepattern ci          dash
-linepattern ci_line     dash
-linepattern ci_area     solid
-linepattern ci2         dash
-linepattern ci2_line    dash
-linepattern ci2_area    solid
 
 linepattern p1line  solid
 linepattern p2line  solid
-linepattern p3line  dash
+linepattern p3line  vshortdash
 linepattern p4line  longdash_dot
-linepattern p5line  dot
-linepattern p6line  dash_dot_dot
-linepattern p7line  tight_dot
-linepattern p8line  longdash
-linepattern p9line  dash_dot
-linepattern p10line shortdash_dot
-linepattern p11line vshortdash
-linepattern p12line longdash_shortdash
-linepattern p13line dash_3dot
-linepattern p14line longdash_dot_dot
-linepattern p15line shortdash_dot_dot
-linepattern p16line longdash_3dot
+linepattern p5line  longdash
+linepattern p6line  dash_dot
+linepattern p7line  dot
+linepattern p8line  shortdash_dot
+linepattern p9line  tight_dot
+linepattern p10line dash_dot_dot
+linepattern p11line longdash_shortdash
+linepattern p12line dash_3dot
+linepattern p13line longdash_dot_dot
+linepattern p14line shortdash_dot_dot
+linepattern p15line longdash_3dot
 
-* linepattern p           solid
-* linepattern pmark       solid
+linepattern ci          solid
+linepattern ci_area     solid
 
-yesno draw_minor_vgrid  yes
-yesno draw_minor_hgrid  yes
-
-
-
-symbolsize         small
-symbolsize p       small
-
-
-symbol p1     circle_hollow
-symbol p2     x
-symbol p3     diamond_hollow
-symbol p4     triangle_hollow
-symbol p5     plus
-symbol p6     square_hollow
-symbol p7     smcircle
-symbol p8     smdiamond
-symbol p9     smsquare
-symbol p10    smtriangle
-symbol p11    smx
-symbol p12    circle
-symbol p13    square
-symbol p14    triangle
+linepattern grid        dot
+linepattern major_grid  dot
+linepattern minor_grid  dot
 
 
 yesno extend_axes_low        no
@@ -242,59 +268,29 @@ yesno extend_axes_high       no
 yesno extend_axes_full_low   no
 yesno extend_axes_full_high  no
 
-color background             white
-
-color xyline "204 121 167"  // reddish purple
-color tick         gs10
-color minortick    gs10
-
-color grid                   gs10
-color major_grid             gs10
-color minor_grid             gs10
-color axisline     gs10
-
-color histogram      white
-color histback       gs2
-color histogram_line black
-
-color p black
-color p1   	"0 0 0"  // black
-color p2     	gs10    // 
-color p3     	"86 180 233"   // sky blue 
-color p4    	"0 158 115"    // bluish green
-color p5      	"204 121 167"  // reddish purple
-color p6      	"213 94 0"  // vermillion
-color p7	"0 114 178"  //blue
-color p8    	"230 159 0"   // orange brown
-color p9    	"240 228 66"    // yellow
-
-color p1line   	"0 0 0"  // black
-color p2line    gs10    // 
-color p3line    "86 180 233"   // sky blue 
-color p4line    "0 158 115"    // bluish green
-color p5line    "204 121 167"  // reddish purple
-color p6line    "213 94 0"  // vermillion
-color p7line	"0 114 178"  //blue
-color p8line    "230 159 0"   // orange brown
-color p9line    "240 228 66"    // yellow
-
 intensity bar 50
-intensity pie 50
 intensity histogram          50
 
-color ci_line                black  // Bu from RdBu-7
-color ci_arealine            gs8
-color ci_area                gs8 
-color ci_symbol              gs8
-intensity ci_area    	     inten30
-color ci2_line               "0 0 0"  // sky blue
-color ci2_arealine           gs12
-color ci2_area               gs12
-color ci2_symbol             gs12
-intensity ci2_area    	     inten30
 
-color histogram_line         black
-color refline		     "0 0 0"  // sky blue
+
+color p       black
+color p1      gs6
+color p2      gs10
+color p3      gs8
+color p4      gs4
+color p5      black
+color p6      gs12
+color p7      gs2
+color p8      gs7
+color p9      gs9
+color p10     gs11
+color p11     gs13
+color p12     gs5
+color p13     gs3
+color p14     gs12
+color p15     gs5
+
+
 
 yesno draw_major_grid        no
 yesno draw_minor_grid        no
@@ -342,6 +338,4 @@ yesno grid_draw_min          no
 yesno grid_draw_max          no
 yesno grid_force_nomin       no
 yesno grid_force_nomax       no
-
-
 

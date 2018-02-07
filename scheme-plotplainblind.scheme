@@ -6,10 +6,18 @@
 *!  version 1.1  24dec2014
 #include s1mono
 
-clockdir legend_position		 7
+// Legend outside in lower right corner; 1 column; short signatures; no frame
+clockdir legend_position     4
+numstyle legend_cols         1
+numstyle legend_rows         0
+gsize legend_key_xsize       2
 
-numstyle legend_rows      2
-numstyle legend_cols      0
+// numstyle legend_rows      1
+// numstyle legend_cols      0
+
+margin axis_title small
+
+graphsize x 6
 
 gsize                 small
 gsize gap             tiny
@@ -87,17 +95,15 @@ linewidth small small
 linewidth histogram    thin
 linewidth bar          thin
 linewidth refline      vthin
-linewidth major_grid         vthin
-linewidth minor_grid         vthin
+linewidth major_grid         thin
+linewidth minor_grid         thin
 llinewidth p                  thin
 linewidth axisline           vthin
 linewidth tick               vthin
 linewidth minortick          vthin
 linewidth background         vthin
 linewidth foreground         vthin
-linewidth major_grid         vthin
-linewidth minor_grid         vthin
-linewidth xyline             vvthin
+linewidth xyline             thin
 linewidth refmarker          vthin
 linewidth matrixmark         vthin
 linewidth dots               thin
@@ -111,12 +117,12 @@ linewidth reverse_big        vthin
 linewidth sunflower          vthin
 linewidth matrix_plotregion  vthin
 linewidth text_option        vthin
-linewidth ci                 vthin
-linewidth ci_line	     vthin
-linewidth ci_area            vthin
-linewidth ci2                vthin
-linewidth ci2_line	     vthin
-linewidth ci2_area           vthin
+linewidth ci                 vvthin
+linewidth ci_line	    vvthin
+linewidth ci_area            vvthin
+linewidth ci2                vvthin
+linewidth ci2_line	    vvthin
+linewidth ci2_area           vvthin
 linewidth pbar               thin
 linewidth p1bar              thin
 linewidth p2bar              thin
@@ -172,19 +178,20 @@ linepattern minor_grid  dot
 
 linepattern p1lineplot  solid
 linepattern p2lineplot  dash
-linepattern p3lineplot  longdash_dot
+linepattern p3lineplot  shortdash_dot
 linepattern p4lineplot  dot
 linepattern p5lineplot  dash_dot_dot
 linepattern p6lineplot  tight_dot
 linepattern p7lineplot  longdash
 linepattern p8lineplot  dash_dot
-linepattern p9lineplot  shortdash_dot
+linepattern p9lineplot  longdash_dot
 linepattern p10lineplot vshortdash
 linepattern p11lineplot longdash_shortdash
 linepattern p12lineplot dash_3dot
 linepattern p13lineplot longdash_dot_dot
 linepattern p14lineplot shortdash_dot_dot
 linepattern p15lineplot longdash_3dot
+
 linepattern ci          dash
 linepattern ci_line     dash
 linepattern ci_area     solid
@@ -244,7 +251,7 @@ yesno extend_axes_full_high  no
 
 color background             white
 
-color xyline "204 121 167"  // reddish purple
+color xyline reddish  // reddish purple
 color tick         gs10
 color minortick    gs10
 
@@ -258,25 +265,25 @@ color histback       gs2
 color histogram_line black
 
 color p black
-color p1   	"0 0 0"  // black
+color p1   	black  // black
 color p2     	gs10    // 
-color p3     	"86 180 233"   // sky blue 
-color p4    	"0 158 115"    // bluish green
-color p5      	"204 121 167"  // reddish purple
-color p6      	"213 94 0"  // vermillion
-color p7	"0 114 178"  //blue
-color p8    	"230 159 0"   // orange brown
-color p9    	"240 228 66"    // yellow
+color p3     	sky  // sky blue 
+color p4    	turquoise    // bluish green
+color p5      	reddish  // reddish purple
+color p6      	vermillion  // vermillion
+color p7	sea  //blue
+color p8    	orangebrown   // orange brown
+color p9    	ananas    // yellow
 
-color p1line   	"0 0 0"  // black
+color p1line   	black  // black
 color p2line    gs10    // 
-color p3line    "86 180 233"   // sky blue 
-color p4line    "0 158 115"    // bluish green
-color p5line    "204 121 167"  // reddish purple
-color p6line    "213 94 0"  // vermillion
-color p7line	"0 114 178"  //blue
-color p8line    "230 159 0"   // orange brown
-color p9line    "240 228 66"    // yellow
+color p3line    sky  // sky blue 
+color p4line    turquoise    // bluish green
+color p5line    reddish  // reddish purple
+color p6line    vermillion  // vermillion
+color p7line    sea  //blue
+color p8line	orangebrown   // orange brow
+color p9line    ananas    // yellow
 
 intensity bar 50
 intensity pie 50
@@ -287,14 +294,24 @@ color ci_arealine            gs8
 color ci_area                gs8 
 color ci_symbol              gs8
 intensity ci_area    	     inten30
-color ci2_line               "0 0 0"  // sky blue
+color ci2_line               gs10 
 color ci2_arealine           gs12
 color ci2_area               gs12
 color ci2_symbol             gs12
 intensity ci2_area    	     inten30
 
 color histogram_line         black
-color refline		     "0 0 0"  // sky blue
+color refline		     gs10
+
+color box              none
+color textbox          none
+color mat_label_box    none
+color bylabel_outline    none
+
+color clegend            none
+color clegend_outer      none
+color clegend_inner      none
+color clegend_line       none
 
 yesno draw_major_grid        no
 yesno draw_minor_grid        no
@@ -342,6 +359,9 @@ yesno grid_draw_min          no
 yesno grid_draw_max          no
 yesno grid_force_nomin       no
 yesno grid_force_nomax       no
+
+yesno legend_col_first       no
+yesno legend_row_first       yes
 
 
 
